@@ -1,14 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Testing</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>화장실전산화</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
     <script type="module" src="./index.js"></script>
+
+    <style type="text/css">
+        *{
+            font-family: 'NanumSquare', '나눔스퀘어', 'Noto Sans KR', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+
 </head>
 <body>
-    Test~~!
+    <div class="layout">
+        <div class="titlebar">
+            <div class="title">
+                디미고 화장실전산화 프로젝트
+            </div>
+            <div class="highmenu-holder">
+                <div class="highmenu-menu" onmouseenter="toggleHighmenuMenuOrigin(true)" onmouseleave="toggleHighmenuMenuOrigin(false)">
+                    <div id="highmenu-title-origin" class="highmenu-title dehover">
+                        본관
+                    </div>
+                    <div id="submenu-holder-origin" class="submenu-holder hide">
+                        <div class="submenu-menu">
+                            남자
+                        </div>
+                        <div class="submenu-menu">
+                            여자
+                        </div>
+                    </div>
+                </div>
+                <div class="highmenu-menu">
+                    <div class="highmenu-title">
+                        신관
+                    </div>
+                    <div id="submenu-holder-new" class="submenu-holder hide">
+                        <div class="submenu-menu">
+                            남자
+                        </div>
+                        <div class="submenu-menu">
+                            여자
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-holder">
+                <div id="content-title" class="content-title">
+                    본관 2층 남자화장실
+                </div>
+                <div  id="content-content" class="content-content">
+                    <div class="content-table-holder">
+                        <div class="content-table-element">
+                            <div class="element-title">
+                                1
+                            </div>
+                            <div class="element-available">
+                                이용가능
+                            </div>
+                            <div class="element-time">
+                                00:00
+                            </div>
+                        </div>
+                        <div class="content-table-element">
+                            <div class="element-title">
+                                2
+                            </div>
+                            <div class="element-available">
+                                이용가능
+                            </div>
+                            <div class="element-time">
+                                00:00
+                            </div>
+                        </div>
+                        <div class="content-table-element">
+                            <div class="element-title">
+                                3
+                            </div>
+                            <div class="element-available">
+                                이용가능
+                            </div>
+                            <div class="element-time">
+                                00:00
+                            </div>
+                        </div>
+                        <div class="content-table-element">
+                            <div class="element-title">
+                                4
+                            </div>
+                            <div class="element-available">
+                                이용가능
+                            </div>
+                            <div class="element-time">
+                                00:00
+                            </div>
+                        </div>
+                        <div class="content-table-element">
+                            <div class="element-title">
+                                5
+                            </div>
+                            <div class="element-available">
+                                이용가능
+                            </div>
+                            <div class="element-time">
+                                00:00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
