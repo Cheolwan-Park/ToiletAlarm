@@ -1,35 +1,5 @@
 import * as toiletalarm from './toilet.js';
 
-var isHighmenuMenuOriginHovered = false;
-
-function toggleHighmenuMenuOrigin(onOff) {
-
-    if(onOff) {
-        highmenuMenuOriginHover();
-    }
-    else {
-        highmenuMenuOriginDehover();
-    }
-}
-
-function highmenuMenuOriginHover() {
-    var submenuHolderOrigin = document.getElementById("submenu-holder-origin");
-    submenuHolderOrigin.classList.replace("hide", "show");
-    var highmenuTitleOrigin = document.getElementById("highmenu-title-origin");
-    highmenuTitleOrigin.classList.replace("dehover", "hover");
-    isHighmenuMenuOriginHovered = true;
-}
-
-function highmenuMenuOriginDehover() {
-    var submenuHolderOrigin = document.getElementById("submenu-holder-origin");
-    submenuHolderOrigin.classList.replace("show", "hide");
-    var highmenuTitleOrigin = document.getElementById("highmenu-title-origin");
-    highmenuTitleOrigin.classList.replace("hover", "dehover");
-    isHighmenuMenuOriginHovered = false;
-}
-
-
-
 
 
 window.addEventListener('DOMContentLoaded', function(){ init(); });
@@ -48,6 +18,14 @@ function init() {
 
     toiletalarm.addcallback(changeIndex);
     toiletalarm.load();
+
+    var url = new URL(window.location.href);
+    if(!url.searchParams.has("building") || !url.searchParams.has("floor")|| !url.searchParams.has("floor")) {
+        url.searchParams.append("building", "0");
+        url.searchParams.append("floor", "0");
+        url.searchParams.append("gender", "male");
+        window.location.href = url;
+    }
 
     callBack();
 }
