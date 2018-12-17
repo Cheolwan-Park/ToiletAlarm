@@ -49,8 +49,12 @@ function Floor(building) {
     this.female = new Restroom(this, 'female');
     this.load = function(data) {
         this.num = data.num;
-        this.male.load(data.male);
-        this.female.load(data.female);
+        if(null != data.male) {
+            this.male.load(data.male);
+        }
+        if(null != data.female) {
+            this.female.load(data.female);
+        }
     };
 }
 

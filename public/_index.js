@@ -22,24 +22,26 @@ toiletalarm.addcallback(function() {
 });
 
 
-function resetdata(num, building) {
+function resetdata(num, building, floors, toilets_male, toilets_female) {
     let database = firebase.database();
     database.ref('root/' + num).set({
         name: building,
     });
-    for(let i=0; i<3; ++i) {
+    for(let i=0; i<floors; ++i) {
         database.ref('root/' + num + '/floors/'+i).set({
             num: i
         });
-        for(let j=0; j<5; ++j) {
+        for(let j=0; j<toilets_male[i]; ++j) {
             database.ref('root/' + num + '/floors/'+i+'/male/'+j).set({
                 available: true,
-                intime: 100
-            })
+                intime: 0
+            });
+        }
+        for(let j=0; j<toilets_female[i]; ++j) {
             database.ref('root/' + num + '/floors/'+i+'/female/'+j).set({
                 available: true,
-                intime: 100
-            })
+                intime: 0
+            });
         }
     }
 }

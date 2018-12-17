@@ -21,15 +21,14 @@ function init() {
 
     var url = new URL(window.location.href);
     if(!url.searchParams.has("building") || !url.searchParams.has("floor")|| !url.searchParams.has("floor")) {
-        url.searchParams.append("building", "0");
-        url.searchParams.append("floor", "0");
-        url.searchParams.append("gender", "male");
-        window.location.href = url;
+        url.searchParams.set("building", "0");
+        url.searchParams.set("floor", "0");
+        url.searchParams.set("gender", "male");
+        window.location.href = url.href;
     }
 
     callBack();
 }
-
 
 
 var building = "0";
@@ -38,6 +37,12 @@ var gender = "male";
 
 function changeIndex() {
     var url = new URL(window.location.href);
+    if(!url.searchParams.has("building") || !url.searchParams.has("floor")|| !url.searchParams.has("floor")) {
+        url.searchParams.set("building", "0");
+        url.searchParams.set("floor", "0");
+        url.searchParams.set("gender", "male");
+        window.location.href = url.href;
+    }
     building = url.searchParams.get("building");
     floor = url.searchParams.get("floor");
     gender = url.searchParams.get("gender");
@@ -46,19 +51,33 @@ function changeIndex() {
     var titleString = "";
     if(building === "0") {
         titleString += "본관 ";
+        	if(floor.toString() === "0") {
+    		titleString += "지하 ";
+    		document.getElementsByClassName("highmenu-menu")[0].style.color = "white";
+    	}
+    	else {
+    		titleString += floor.toString() + "층 ";
+    		document.getElementsByClassName("highmenu-menu")[parseInt(floor)].style.color = "white";
+		}
     }
     else if(building === "1") {
         titleString += "신관 ";
+    	titleString += floor.toString() + "층 ";
+    	document.getElementsByClassName("highmenu-menu")[2 + parseInt(floor)].style.color = "white";
     }   
     else {
         return;
     }
-    titleString += floor.toString() + "층 ";
+    
     if(gender === "male") {
         titleString += "남자화장실";
+        document.getElementsByClassName("content-menu-menu")[0].style.color = "#111111";
+        document.getElementsByClassName("content-menu-menu")[0].style.borderBottom = "3px solid #1abc9c";
     }
     else if(gender === "female") {
         titleString += "여자화장실";
+        document.getElementsByClassName("content-menu-menu")[1].style.color = "#111111";
+        document.getElementsByClassName("content-menu-menu")[1].style.borderBottom = "3px solid #1abc9c";
     }
     else {
         return;

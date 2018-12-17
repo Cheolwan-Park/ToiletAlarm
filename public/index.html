@@ -13,6 +13,21 @@
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
     <script type="module" src="./index.js"></script>
+    <script>
+        function changeParams(b, f, g) {
+            var url = new URL(window.location.href);
+            url.searchParams.set("building", b);
+            url.searchParams.set("floor", f);
+            url.searchParams.set("gender", g);
+            window.location.href = url.href;
+        }
+
+        function changeParamGender(g) {
+            var url = new URL(window.location.href);
+            url.searchParams.set('gender', g);
+            window.location.href = url.href;
+        }
+    </script>
 
     <style type="text/css">
         *{
@@ -29,45 +44,42 @@
                 디미고 화장실전산화 프로젝트
             </div>
             <div class="highmenu-holder">
-                <div class="highmenu-menu dehover">
+                <div class="highmenu-menu" onclick="changeParams('0', '0', 'male')">
                     본관 지하
                 </div>
-                <div class="highmenu-menu dehover">
+                <div class="highmenu-menu" onclick="changeParams('0', '1', 'male')">
                     본관 1층
                 </div>
-                <div class="highmenu-menu dehover">
+                <div class="highmenu-menu" onclick="changeParams('0', '2', 'male')">
                     본관 2층
                 </div>
-                <div class="highmenu-menu dehover">
+                <div class="highmenu-menu" onclick="changeParams('1', '1', 'male')">
                     신관 1층
                 </div>
-                <div class="highmenu-menu dehover">
+                <div class="highmenu-menu" onclick="changeParams('1', '2', 'male')">
                     신관 2층
                 </div>
-                <div class="highmenu-menu dehover">
+                <div class="highmenu-menu" onclick="changeParams('1', '3', 'male')">
                     신관 3층
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="content-holder">
+                <div class="content-menu-holder">
+                    <div class="content-menu-menu" onclick="changeParamGender('male')">
+                        남자
+                    </div>
+                    <div class="content-menu-menu" onclick="changeParamGender('female')">
+                        여자
+                    </div>
+                </div>
                 <div id="content-title" class="content-title">
-                    본관 2층 남자화장실
+
                 </div>
                 <div  id="content-content" class="content-content">
                     <div class="content-table-holder">
-                        <div class="content-table-element">
-                            <div class="element-title">
-                                1
-                            </div>
-                            <div class="element-available">
-                                이용가능
-                            </div>
-                            <div class="element-time">
-                                00:00
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
